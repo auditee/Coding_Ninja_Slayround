@@ -1,0 +1,28 @@
+//The Look-And-Say sequence is a sequence of positive integers.
+
+The sequence is as follows: 1, 11, 21, 1211, 111221, 312211, 13112221, This sequence is constructed in the following way//
+
+
+string lookAndSaySequence(int n) 
+{
+    // Write your code here.
+    string res = "1";
+    if (n==1) {
+        return res;
+        }
+    for(int i =2; i<=n; i++){
+        string str = res;
+        int len = res.size();
+        int j =0;
+        res = "";
+        while (j<len){
+            int count=j;
+            while(j<len && str[j] == str[count]){
+                count++;
+            }
+            res+= to_string(count-j)+ str[j];
+            j=count;
+            }
+        }
+    return res;
+}
